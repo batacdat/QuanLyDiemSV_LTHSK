@@ -77,5 +77,12 @@ namespace BTL_QuanLyDiemSinhVien
         {
 
         }
+
+        private void quảnLýGiảngViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new QuanLyGV();
+            form.Show();
+        }
     }
 }

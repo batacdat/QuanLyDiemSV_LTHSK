@@ -38,6 +38,7 @@
             this.QuanLyKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QuanLyDiemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QuanLyMonHocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýGiảngViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,14 +66,14 @@
             // DoiMKToolStripMenuItem
             // 
             this.DoiMKToolStripMenuItem.Name = "DoiMKToolStripMenuItem";
-            this.DoiMKToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.DoiMKToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.DoiMKToolStripMenuItem.Text = "Đổi mật khẩu";
             this.DoiMKToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
             // ThoatToolStripMenuItem
             // 
             this.ThoatToolStripMenuItem.Name = "ThoatToolStripMenuItem";
-            this.ThoatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ThoatToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.ThoatToolStripMenuItem.Text = "Thoát";
             this.ThoatToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -83,7 +84,8 @@
             this.QuanLyLopToolStripMenuItem,
             this.QuanLyKhoaToolStripMenuItem,
             this.QuanLyDiemToolStripMenuItem,
-            this.QuanLyMonHocToolStripMenuItem});
+            this.QuanLyMonHocToolStripMenuItem,
+            this.quảnLýGiảngViênToolStripMenuItem});
             this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
             this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.quảnLýToolStripMenuItem.Text = "Quản lý";
@@ -124,6 +126,13 @@
             this.QuanLyMonHocToolStripMenuItem.Text = "Quản lý môn học";
             this.QuanLyMonHocToolStripMenuItem.Click += new System.EventHandler(this.QuanLyMonHocToolStripMenuItem_Click);
             // 
+            // quảnLýGiảngViênToolStripMenuItem
+            // 
+            this.quảnLýGiảngViênToolStripMenuItem.Name = "quảnLýGiảngViênToolStripMenuItem";
+            this.quảnLýGiảngViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýGiảngViênToolStripMenuItem.Text = "Quản lý giảng viên";
+            this.quảnLýGiảngViênToolStripMenuItem.Click += new System.EventHandler(this.quảnLýGiảngViênToolStripMenuItem_Click);
+            // 
             // frmTrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -151,5 +160,6 @@
         private System.Windows.Forms.ToolStripMenuItem QuanLyKhoaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QuanLyDiemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QuanLyMonHocToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýGiảngViênToolStripMenuItem;
     }
 }

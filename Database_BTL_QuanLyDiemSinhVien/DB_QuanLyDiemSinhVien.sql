@@ -50,12 +50,27 @@ CREATE TABLE tblDiemHP (
     fDiemCC FLOAT,
     fDiemGK FLOAT,
     fDiemCK FLOAT,
-    sMaGV varchar(20),
+   
     PRIMARY KEY (sMaSV, sMaMH, sHocKy, sNamHoc),
     FOREIGN KEY (sMaSV) REFERENCES tblSinhVien(sMaSV),
     FOREIGN KEY (sMaMH) REFERENCES tblMonHoc(sMaMH)
     
 );
+
+CREATE TABLE tblGiangVien (
+    sMaGV varchar(20) PRIMARY KEY not null,
+    sTenGV NVARCHAR(50),
+    sSDT VARCHAR(12),
+    sBangCap NVARCHAR(50),
+    sUserName varchar(10) not null,
+    sPassWord varchar(10)
+);
+
+ALTER TABLE tblDiemHP
+ADD sMaGV varchar(20);
+
+ALTER TABLE tblDiemHP
+ADD CONSTRAINT FK_GiangVien FOREIGN KEY (sMaGV) REFERENCES tblGiangVien(sMaGV);
 
 INSERT INTO tblKhoa (sMaKhoa, sTenKhoa, sSDT, sDiaChiKhoa)
 VALUES 
@@ -87,8 +102,38 @@ VALUES
 ('SV02', 'MH02', N'HK1', N'2023-2024', 7.0, 7.0, 7.5 ),
 ('SV03', 'MH03', N'HK1', N'2023-2024', 6.0, 7.5, 8.0);
 
-Luật kinh tế
-select * from tblSinhVien
+INSERT INTO tblGiangVien (sMaGV, sTenGV, sSDT, sBangCap, sUserName, sPassWord)
+VALUES 
+('GV01', N'Nguyễn Văn Trình', '0123456789', N'Thạc sĩ', 'GV01', 'pass01'),
+('GV02', N'Trần Thị Bắc', '0987654321', N'Tiến sĩ', 'GV02', 'pass02'),
+('GV03', N'Phạm Văn Chiến', '0934567890', N'Thạc sĩ', 'GV03', 'pass03'),
+('GV04', N'Lê Thị Doan', '0912345678', N'Cử nhân', 'GV04', 'pass04'),
+('GV05', N'Hoàng Văn Minh', '0976543210', N'Tiến sĩ', 'GV05', 'pass05');
 
+UPDATE tblDiemHP
+SET sMaGV = 'GV01'
+WHERE sMaSV = 'SV01' AND sMaMH = 'MH01' AND sHocKy = N'HK1' AND sNamHoc = N'2023-2024';
+
+UPDATE tblDiemHP
+SET sMaGV = 'GV02'
+WHERE sMaSV = 'SV02' AND sMaMH = 'MH02' AND sHocKy = N'HK1' AND sNamHoc = N'2023-2024';
+
+UPDATE tblDiemHP
+SET sMaGV = 'GV03'
+WHERE sMaSV = 'SV03' AND sMaMH = 'MH03' AND sHocKy = N'HK1' AND sNamHoc = N'2023-2024';
+--Luật kinh tế
+select * from tblSinhVien
+select * from tblGiangVien
+select * from tblMonHoc
 select * from tblDiemHP
-alter table tblDiemHP drop column sMaGV
+select * from tblKhoa
+
+
+
+
+
+
+
+
+
+

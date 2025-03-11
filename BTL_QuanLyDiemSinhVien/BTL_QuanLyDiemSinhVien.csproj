@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -76,6 +79,12 @@
     </Compile>
     <Compile Include="QuanLyDiem.Designer.cs">
       <DependentUpon>QuanLyDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyGV.Designer.cs">
+      <DependentUpon>QuanLyGV.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyKhoa.cs">
       <SubType>Form</SubType>
@@ -123,6 +132,9 @@
     <EmbeddedResource Include="QuanLyDiem.resx">
       <DependentUpon>QuanLyDiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyGV.resx">
+      <DependentUpon>QuanLyGV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuanLyKhoa.resx">
       <DependentUpon>QuanLyKhoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ảnh chụp màn hình 2025-02-14 142603.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
