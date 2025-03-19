@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BTL_QuanLyDiemSinhVien
 {
@@ -332,6 +333,67 @@ namespace BTL_QuanLyDiemSinhVien
 
             // Cập nhật lại DataGridView
             QuanLyDiem_Load(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra xem mã môn học đã được chọn hay chưa
+                if (string.IsNullOrEmpty(txtMaMH.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn mã môn học.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Kiểm tra xem năm học và học kỳ đã được chọn hay chưa
+                if (string.IsNullOrEmpty(txtNamHoc.Text) || string.IsNullOrEmpty(txtHocKy.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập năm học và học kỳ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Truy vấn dữ liệu từ cơ sở dữ liệu
+                string query = @"
+    SELECT tblMonHoc.sMaMH, tblMonHoc.sTenMH, tblMonHoc.iSoTC, tblDiemHP.sHocKy, tblDiemHP.sNamHoc,
+           tblSinhVien.sMaSV, tblSinhVien.sTenSV, tblSinhVien.dNgaySinh, 
+           tblDiemHP.fDiemCC, tblDiemHP.fDiemGK, tblDiemHP.fDiemCK
+    FROM tblMonHoc
+    INNER JOIN tblDiemHP ON tblMonHoc.sMaMH = tblDiemHP.sMaMH
+    INNER JOIN tblSinhVien ON tblDiemHP.sMaSV = tblSinhVien.sMaSV
+    WHERE tblMonHoc.sMaMH = @MaMH AND tblDiemHP.sNamHoc = @NamHoc AND tblDiemHP.sHocKy = @HocKy";
+
+                var parameters = new Dictionary<string, object>
+        {
+            { "@MaMH", txtMaMH.Text },
+            { "@NamHoc", txtNamHoc.Text },
+            { "@HocKy", txtHocKy.Text }
+        };
+
+                // Thực thi truy vấn và lấy dữ liệu
+                DataTable dt = kn.Execute(query, parameters);
+
+                // Kiểm tra xem có dữ liệu trả về hay không
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Gán dữ liệu cho Crystal Report
+                rptBangDiem2 baocao = new rptBangDiem2();
+                baocao.SetDataSource(dt);
+
+                // Hiển thị báo cáo
+                frmInBaoCao form = new frmInBaoCao();
+                form.crystalReportViewer1.ReportSource = baocao;
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

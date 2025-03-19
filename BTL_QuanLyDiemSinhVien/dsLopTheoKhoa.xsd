@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsLopTheoKhoa" targetNamespace="http://tempuri.org/dsLopTheoKhoa.xsd" xmlns:mstns="http://tempuri.org/dsLopTheoKhoa.xsd" xmlns="http://tempuri.org/dsLopTheoKhoa.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsLopTheoKhoa" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsLopTheoKhoa" msprop:Generator_DataSetName="dsLopTheoKhoa">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtLopTheoKhoa" msprop:Generator_RowEvHandlerName="dtLopTheoKhoaRowChangeEventHandler" msprop:Generator_RowDeletedName="dtLopTheoKhoaRowDeleted" msprop:Generator_RowDeletingName="dtLopTheoKhoaRowDeleting" msprop:Generator_RowEvArgName="dtLopTheoKhoaRowChangeEvent" msprop:Generator_TablePropName="dtLopTheoKhoa" msprop:Generator_RowChangedName="dtLopTheoKhoaRowChanged" msprop:Generator_RowChangingName="dtLopTheoKhoaRowChanging" msprop:Generator_TableClassName="dtLopTheoKhoaDataTable" msprop:Generator_RowClassName="dtLopTheoKhoaRow" msprop:Generator_TableVarName="tabledtLopTheoKhoa" msprop:Generator_UserTableName="dtLopTheoKhoa">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sMaLop" msprop:Generator_ColumnPropNameInRow="sMaLop" msprop:Generator_ColumnPropNameInTable="sMaLopColumn" msprop:Generator_ColumnVarNameInTable="columnsMaLop" msprop:Generator_UserColumnName="sMaLop" type="xs:string" minOccurs="0" />
+              <xs:element name="sTenLop" msprop:Generator_ColumnPropNameInRow="sTenLop" msprop:Generator_ColumnPropNameInTable="sTenLopColumn" msprop:Generator_ColumnVarNameInTable="columnsTenLop" msprop:Generator_UserColumnName="sTenLop" type="xs:string" minOccurs="0" />
+              <xs:element name="sMaKhoa" msprop:Generator_ColumnPropNameInRow="sMaKhoa" msprop:Generator_ColumnPropNameInTable="sMaKhoaColumn" msprop:Generator_ColumnVarNameInTable="columnsMaKhoa" msprop:Generator_UserColumnName="sMaKhoa" type="xs:string" minOccurs="0" />
+              <xs:element name="sTenKhoa" msprop:Generator_ColumnPropNameInRow="sTenKhoa" msprop:Generator_ColumnPropNameInTable="sTenKhoaColumn" msprop:Generator_ColumnVarNameInTable="columnsTenKhoa" msprop:Generator_UserColumnName="sTenKhoa" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

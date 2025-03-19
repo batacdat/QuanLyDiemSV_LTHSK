@@ -50,6 +50,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbTimKiem = new System.Windows.Forms.ComboBox();
             this.btnTim = new System.Windows.Forms.Button();
+            this.btnInLopTheoKhoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachLop)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -268,11 +269,22 @@
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
+            // btnInLopTheoKhoa
+            // 
+            this.btnInLopTheoKhoa.Location = new System.Drawing.Point(40, 352);
+            this.btnInLopTheoKhoa.Name = "btnInLopTheoKhoa";
+            this.btnInLopTheoKhoa.Size = new System.Drawing.Size(135, 49);
+            this.btnInLopTheoKhoa.TabIndex = 31;
+            this.btnInLopTheoKhoa.Text = "In Lop theo KHoa";
+            this.btnInLopTheoKhoa.UseVisualStyleBackColor = true;
+            this.btnInLopTheoKhoa.Click += new System.EventHandler(this.btnInLopTheoKhoa_Click);
+            // 
             // QuanLyLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 500);
+            this.Controls.Add(this.btnInLopTheoKhoa);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.dgvDanhSachLop);
@@ -316,5 +328,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbTimKiem;
         private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.Button btnInLopTheoKhoa;
     }
 }

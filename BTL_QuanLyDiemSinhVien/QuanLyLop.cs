@@ -261,5 +261,60 @@ namespace BTL_QuanLyDiemSinhVien
             // Cập nhật lại DataGridView
             QuanLyLop_Load(sender, e);
         }
+
+        private void btnInLopTheoKhoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra xem mã môn học đã được chọn hay chưa
+                if (string.IsNullOrEmpty(txtMaKhoa.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn mã khoa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                
+
+                // Truy vấn dữ liệu từ cơ sở dữ liệu
+                string query = @"
+SELECT tblLop.sMaLop,tblLop.sTenLop, tblKhoa.sMaKhoa,tblKhoa.sTenKhoa
+      
+FROM tblLop
+INNER JOIN tblKhoa ON tblLop.sMaKhoa = tblKhoa.sMaKhoa
+
+WHERE  tblLop.sMaKhoa = @MaKhoa";
+//INNER JOIN tblKhoa ON tblLop.sMaLop = tblKhoa.sMaLop
+                var parameters = new Dictionary<string, object>
+    {
+        { "@MaKhoa", txtMaKhoa.Text },
+       
+    };
+
+                // Thực thi truy vấn và lấy dữ liệu
+                DataTable dt = kn.Execute(query, parameters);
+
+                // Kiểm tra xem có dữ liệu trả về hay không
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Gán dữ liệu cho Crystal Report
+                rptDanhSachLop baocao = new rptDanhSachLop();
+                baocao.SetDataSource(dt);
+
+                // Hiển thị báo cáo
+                frmInBaoCaoDSLop form = new frmInBaoCaoDSLop();
+                form.crystalReportViewer1.ReportSource = baocao;
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }

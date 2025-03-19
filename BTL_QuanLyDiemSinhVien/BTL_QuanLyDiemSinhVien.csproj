@@ -36,12 +36,15 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.9.0.2\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +56,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dsBangDiem.cs">
+      <DependentUpon>dsBangDiem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBangDiem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBangDiem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBangDiem2.cs">
+      <DependentUpon>dsBangDiem2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBangDiem2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBangDiem2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLopTheoKhoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLopTheoKhoa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +89,23 @@
     <Compile Include="frmDoiMK.Designer.cs">
       <DependentUpon>frmDoiMK.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInBaoCao.Designer.cs">
+      <DependentUpon>frmInBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTrangChu.Designer.cs">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInBaoCaoDSLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInBaoCaoDSLop.Designer.cs">
+      <DependentUpon>frmInBaoCaoDSLop.cs</DependentUpon>
     </Compile>
     <Compile Include="KetNoiCSDL.cs" />
     <Compile Include="Program.cs" />
@@ -110,14 +146,38 @@
     <Compile Include="QuanLySV.Designer.cs">
       <DependentUpon>QuanLySV.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptBangDiem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBangDiem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptBangDiem2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBangDiem2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptDanhSachLop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDanhSachLop.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMK.resx">
       <DependentUpon>frmDoiMK.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInBaoCao.resx">
+      <DependentUpon>frmInBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTrangChu.resx">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInBaoCaoDSLop.resx">
+      <DependentUpon>frmInBaoCaoDSLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,6 +207,51 @@
     <EmbeddedResource Include="QuanLySV.resx">
       <DependentUpon>QuanLySV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptBangDiem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBangDiem.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptBangDiem2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBangDiem2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptDanhSachLop.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDanhSachLop.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="dsBangDiem.xsc">
+      <DependentUpon>dsBangDiem.xsd</DependentUpon>
+    </None>
+    <None Include="dsBangDiem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBangDiem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBangDiem.xss">
+      <DependentUpon>dsBangDiem.xsd</DependentUpon>
+    </None>
+    <None Include="dsBangDiem2.xsc">
+      <DependentUpon>dsBangDiem2.xsd</DependentUpon>
+    </None>
+    <None Include="dsBangDiem2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBangDiem2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBangDiem2.xss">
+      <DependentUpon>dsBangDiem2.xsd</DependentUpon>
+    </None>
+    <None Include="dsLopTheoKhoa.xsc">
+      <DependentUpon>dsLopTheoKhoa.xsd</DependentUpon>
+    </None>
+    <None Include="dsLopTheoKhoa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLopTheoKhoa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsLopTheoKhoa.xss">
+      <DependentUpon>dsLopTheoKhoa.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

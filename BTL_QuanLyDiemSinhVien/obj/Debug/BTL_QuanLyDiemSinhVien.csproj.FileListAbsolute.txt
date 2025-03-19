@@ -35,3 +35,6 @@ E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\bin\Debug\Cryst
 E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\bin\Debug\stdole.dll
 E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\obj\Debug\BTL_QuanLyDiemSinhVien.QuanLyGV.resources
+E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\bin\Debug\CrystalDecisions.Windows.Forms.dll
+E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\obj\Debug\BTL_QuanLyDiemSinhVien.frmInBaoCao.resources
+E:\LapTrinhWinForm\BTL_QuanLyDiemSinhVien\BTL_QuanLyDiemSinhVien\obj\Debug\BTL_QuanLyDiemSinhVien.frmInBaoCaoDSLop.resources
