@@ -323,6 +323,11 @@ namespace BTL_QuanLyDiemSinhVien
 
 
         }
+
+        private void dgvDanhSachSV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

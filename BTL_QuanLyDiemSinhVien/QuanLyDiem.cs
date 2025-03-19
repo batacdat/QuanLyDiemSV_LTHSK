@@ -48,7 +48,7 @@ namespace BTL_QuanLyDiemSinhVien
                 DataGridViewRow row = dgvDanhSachDiem.Rows[e.RowIndex];
                 txtMaSV.Text = row.Cells["sMaSV"].Value.ToString();
                 txtMaMH.Text = row.Cells["sMaMH"].Value.ToString();
-              
+                txtMaGV.Text = row.Cells["sMaGV"].Value.ToString();
                 txtHocKy.Text = row.Cells["sHocKy"].Value.ToString();
                 txtNamHoc.Text = row.Cells["sNamHoc"].Value.ToString();
                 txtDiemCC.Text = row.Cells["fDiemCC"].Value.ToString();
@@ -65,9 +65,9 @@ namespace BTL_QuanLyDiemSinhVien
                 string maMH = txtMaMH.Text;
                 string hocKy = txtHocKy.Text;
                 string namHoc = txtNamHoc.Text;
-
+                string maGV = txtMaGV.Text;
                 // Kiểm tra các trường nhập liệu có rỗng hay không
-                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(maMH) || string.IsNullOrEmpty(hocKy) || string.IsNullOrEmpty(namHoc))
+                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(maMH) || string.IsNullOrEmpty(hocKy) || string.IsNullOrEmpty(namHoc) || string.IsNullOrEmpty(maGV))
                 {
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                     return;
@@ -96,8 +96,8 @@ namespace BTL_QuanLyDiemSinhVien
                 }
 
                 // Chuẩn bị câu lệnh SQL để chèn dữ liệu
-                string query = "INSERT INTO tblDiemHP (sMaSV, sMaMH, sHocKy, sNamHoc, fDiemCC, fDiemGK, fDiemCK) " +
-                               "VALUES (@maSV, @maMH, @hocKy, @namHoc, @diemCC, @diemGK, @diemCK)";
+                string query = "INSERT INTO tblDiemHP (sMaSV, sMaMH, sHocKy, sNamHoc, fDiemCC, fDiemGK, fDiemCK,sMaGV) " +
+                               "VALUES (@maSV, @maMH, @hocKy, @namHoc, @diemCC, @diemGK, @diemCK,@maGV)";
 
                 // Sử dụng parameterized query để tránh SQL Injection
                 var parameters = new Dictionary<string, object>
@@ -108,7 +108,8 @@ namespace BTL_QuanLyDiemSinhVien
                     { "@namHoc", namHoc },
                     { "@diemCC", diemCC },
                     { "@diemGK", diemGK },
-                    { "@diemCK", diemCK }
+                    { "@diemCK", diemCK },
+                    {"@maGV",maGV }
                 };
 
                 // Sử dụng phương thức ExecuteNonQuery để thực hiện lệnh chèn dữ liệu
@@ -138,6 +139,7 @@ namespace BTL_QuanLyDiemSinhVien
             txtDiemGK.Clear();
             txtDiemCK.Clear();
             txtNhapTT.Clear();
+            txtMaGV.Clear();
            
         }
 
@@ -150,9 +152,9 @@ namespace BTL_QuanLyDiemSinhVien
                 string maMH = txtMaMH.Text;
                 string hocKy = txtHocKy.Text;
                 string namHoc = txtNamHoc.Text;
-
+                string maGV = txtMaGV.Text;
                 // Kiểm tra các trường nhập liệu có rỗng hay không
-                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(maMH) || string.IsNullOrEmpty(hocKy) || string.IsNullOrEmpty(namHoc))
+                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(maMH) || string.IsNullOrEmpty(hocKy) || string.IsNullOrEmpty(namHoc) || string.IsNullOrEmpty(maGV))
                 {
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                     return;
@@ -181,7 +183,7 @@ namespace BTL_QuanLyDiemSinhVien
                 }
 
                 // Chuẩn bị câu lệnh SQL để chèn dữ liệu
-                string query = "UPDATE tblDiemHP SET  fDiemCC = @diemCC, fDiemGK = @diemGK, fDiemCK = @diemCK " +
+                string query = "UPDATE tblDiemHP SET  fDiemCC = @diemCC, fDiemGK = @diemGK, fDiemCK = @diemCK ,sMaGV=@maGV " +
                         "WHERE sMaSV = @maSV AND sMaMH = @maMH and sHocKy = @hocKy and sNamHoc = @namHoc ";
                 // Sử dụng parameterized query để tránh SQL Injection
                 var parameters = new Dictionary<string, object>
@@ -192,7 +194,8 @@ namespace BTL_QuanLyDiemSinhVien
                     { "@namHoc", namHoc },
                     { "@diemCC", diemCC },
                     { "@diemGK", diemGK },
-                    { "@diemCK", diemCK }
+                    { "@diemCK", diemCK },
+                    {"@maGV", maGV }
                 };
 
                 // Sử dụng phương thức ExecuteNonQuery để thực hiện lệnh chèn dữ liệu
@@ -220,9 +223,10 @@ namespace BTL_QuanLyDiemSinhVien
                 // Lấy mã sinh viên và mã môn học từ các trường nhập liệu
                 string maSV = txtMaSV.Text;
                 string maMH = txtMaMH.Text;
-
+                string hocKy = txtHocKy.Text;
+                string namHoc = txtNamHoc.Text;
                 // Kiểm tra các trường nhập liệu có rỗng hay không
-                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(maMH))
+                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(maMH) || string.IsNullOrEmpty(hocKy) || string.IsNullOrEmpty(namHoc))
                 {
                     MessageBox.Show("Vui lòng chọn điểm cần xóa.");
                     return;
@@ -233,13 +237,16 @@ namespace BTL_QuanLyDiemSinhVien
                 if (result == DialogResult.Yes)
                 {
                     // Chuẩn bị câu lệnh SQL để xóa dữ liệu
-                    string query = "DELETE FROM tblDiemHP WHERE sMaSV = @maSV AND sMaMH = @maMH";
+                    string query = "DELETE FROM tblDiemHP WHERE sMaSV = @maSV AND sMaMH = @maMH AND sNamHoc = @namHoc AND sHocKy = @hocKy";
 
                     // Sử dụng parameterized query để tránh SQL Injection
                     var parameters = new Dictionary<string, object>
             {
                 { "@maSV", maSV },
-                { "@maMH", maMH }
+                { "@maMH", maMH },
+                {"@namHoc",namHoc },
+                {"@hocKy",hocKy }
+
             };
 
                     // Sử dụng phương thức ExecuteNonQuery để thực hiện lệnh xóa dữ liệu

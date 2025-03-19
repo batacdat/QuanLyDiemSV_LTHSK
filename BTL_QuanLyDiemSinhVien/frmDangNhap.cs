@@ -26,7 +26,7 @@ namespace BTL_QuanLyDiemSinhVien
 
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Exception!");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác. Vui lòng nhập lại!");
 
             }
             else

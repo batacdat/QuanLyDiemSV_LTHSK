@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnXoaTT = new System.Windows.Forms.Button();
+            this.txtNhapTT = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.cbTimKiem = new System.Windows.Forms.ComboBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,10 +60,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnQuayLai = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNhapTT = new System.Windows.Forms.TextBox();
-            this.btnXoaTT = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +79,41 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(529, 101);
             this.panel4.TabIndex = 29;
+            // 
+            // btnXoaTT
+            // 
+            this.btnXoaTT.Location = new System.Drawing.Point(414, 63);
+            this.btnXoaTT.Name = "btnXoaTT";
+            this.btnXoaTT.Size = new System.Drawing.Size(66, 28);
+            this.btnXoaTT.TabIndex = 30;
+            this.btnXoaTT.Text = "Xóa";
+            this.btnXoaTT.UseVisualStyleBackColor = true;
+            this.btnXoaTT.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtNhapTT
+            // 
+            this.txtNhapTT.Location = new System.Drawing.Point(120, 63);
+            this.txtNhapTT.Name = "txtNhapTT";
+            this.txtNhapTT.Size = new System.Drawing.Size(229, 22);
+            this.txtNhapTT.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 63);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 16);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Nhập TT";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 16);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Tìm kiếm theo";
             // 
             // cbTimKiem
             // 
@@ -299,13 +334,14 @@
             // dgvDanhSachSV
             // 
             this.dgvDanhSachSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachSV.Location = new System.Drawing.Point(581, 36);
+            this.dgvDanhSachSV.Location = new System.Drawing.Point(573, 36);
             this.dgvDanhSachSV.Name = "dgvDanhSachSV";
             this.dgvDanhSachSV.RowHeadersWidth = 51;
             this.dgvDanhSachSV.RowTemplate.Height = 24;
             this.dgvDanhSachSV.Size = new System.Drawing.Size(849, 449);
             this.dgvDanhSachSV.TabIndex = 25;
             this.dgvDanhSachSV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachSV_CellClick);
+            this.dgvDanhSachSV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachSV_CellContentClick);
             // 
             // panel5
             // 
@@ -335,41 +371,6 @@
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.UseVisualStyleBackColor = true;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 11);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 16);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Tìm kiếm theo";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 63);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 16);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Nhập TT";
-            // 
-            // txtNhapTT
-            // 
-            this.txtNhapTT.Location = new System.Drawing.Point(120, 63);
-            this.txtNhapTT.Name = "txtNhapTT";
-            this.txtNhapTT.Size = new System.Drawing.Size(229, 22);
-            this.txtNhapTT.TabIndex = 29;
-            // 
-            // btnXoaTT
-            // 
-            this.btnXoaTT.Location = new System.Drawing.Point(414, 63);
-            this.btnXoaTT.Name = "btnXoaTT";
-            this.btnXoaTT.Size = new System.Drawing.Size(66, 28);
-            this.btnXoaTT.TabIndex = 30;
-            this.btnXoaTT.Text = "Xóa";
-            this.btnXoaTT.UseVisualStyleBackColor = true;
-            this.btnXoaTT.Click += new System.EventHandler(this.button1_Click);
             // 
             // QuanLySV
             // 
